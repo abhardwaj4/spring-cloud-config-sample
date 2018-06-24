@@ -1,0 +1,81 @@
+cacheKeyConfig:
+    cacheName: eoscache
+    description: EOS Cache for storing external API responses
+    soapActionEOSCacheKeyProperties:
+        -
+          cacheableStatusCodes: "100"
+          cacheKey: eos_getEligibleServices_{getEligibleServicesRequest.accountNumber}_{getEligibleServicesRequest.MSISDN}_{getEligibleServicesRequest.ratePlan}_{getEligibleServicesRequest.imei}_[sessionId]
+          ignoreCaching: false
+          isUpdateAction: false
+          statusCodePath: getEligibleServicesResponse.responseStatus.@code
+          timeToLive: 1200
+          requestQualifiedName: getEligibleServicesRequest
+          
+        -
+          cacheableStatusCodes: "100"
+          cacheKey: eos_getEligiblePasses_{getEligiblePassesRequest.passCriteria.MSISDN}_{getEligiblePassesRequest.passCriteria.filterOnUsage}_{getEligiblePassesRequest.passCriteria.imei}_{getEligiblePassesRequest.passCriteria.planId}_{getEligiblePassesRequest.passCriteria.socCode}_[sessionId]
+          ignoreCaching: false
+          isUpdateAction: false
+          statusCodePath: getEligiblePassesResponse.responseStatus.@code
+          timeToLive: 1200
+          requestQualifiedName: getEligiblePassesRequest
+          
+        -
+          cacheableStatusCodes: "100"
+          cacheKey: eos_getPassAgreement_{getPassAgreementRequest.MSISDN}_[sessionId]
+          ignoreCaching: false
+          isUpdateAction: false
+          statusCodePath: getPassAgreementResponse.responseStatus.@code
+          timeToLive: 1200
+          requestQualifiedName: getPassAgreementRequest
+          
+        -
+          cacheableStatusCodes: "100"
+          cacheKey: eos_getServiceAgreement_{getServiceAgreementRequest.subscriber.MSISDN}_[sessionId]
+          ignoreCaching: false
+          isUpdateAction: false
+          statusCodePath: getServiceAgreementResponse.responseStatus.@code
+          timeToLive: 1200
+          requestQualifiedName: getServiceAgreementRequest
+          
+        -
+          cacheableStatusCodes: "100"
+          cacheKey: eos_getServiceChangeEffectiveDates_{getServiceChangeEffectiveDatesRequest.flexpayAccount}_{getServiceChangeEffectiveDatesRequest.subscriber.MSISDN}_{getServiceChangeEffectiveDatesRequest.subscriber.productType}_[sessionId]
+          ignoreCaching: false
+          isUpdateAction: false
+          statusCodePath: getServiceChangeEffectiveDatesResponse.responseStatus.@code
+          timeToLive: 1200
+          requestQualifiedName: getServiceChangeEffectiveDatesRequest
+          
+        -
+          cacheableStatusCodes: "100"
+          isUpdateAction: true
+          statusCodePath: changePlanAndServicesResponse.responseStatus.@code
+          requestQualifiedName: changePlanAndServicesRequest
+          
+        -
+          cacheableStatusCodes: "100"
+          cacheKey: eos_getHandsetInfo_{getHandsetInfoRequest.MSISDN}_[sessionId]
+          ignoreCaching: false
+          isUpdateAction: false
+          statusCodePath: getHandsetInfoResponse.responseStatus.@code
+          timeToLive: 1200
+          requestQualifiedName: getHandsetInfoRequest
+          
+        -
+          cacheableStatusCodes: "100"
+          cacheKey: eos_getSubscriberInfo_{getSubscriberInfoRequest.MSISDN}_[sessionId]
+          ignoreCaching: false
+          isUpdateAction: false
+          statusCodePath: getSubscriberInfoResponse.responseStatus.@code
+          timeToLive: 1200
+          requestQualifiedName: getSubscriberInfoRequest
+          
+        -
+          cacheableStatusCodes: "S"
+          cacheKey: eos_getSocParameter_{esiGetSocParameterRequest.listOfSOCs.socCode}_{esiGetSocParameterRequest.serviceLevel}_[sessionId]
+          ignoreCaching: false
+          isUpdateAction: false
+          statusCodePath: esiGetSocParameterResponse.status.statusCode
+          timeToLive: 1200
+          requestQualifiedName: esiGetSocParameterRequest
